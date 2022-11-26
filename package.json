@@ -2,10 +2,15 @@
     "name": "nodejs-todolist",
     "version": "1.0.0",
     "description": "todo list on nodejs",
+    "type": "commonjs",
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "format": "npx prettier --write ."
+        "format": "npx prettier --write .",
+        "httpserver": "node server/http.server.js",
+        "httpdevserver": "nodemon server/http.server.js",
+        "expserver": "node server/express.server.js",
+        "expdevserver": "nodemon server/express.server.js"
     },
     "repository": {
         "type": "git",
@@ -22,10 +27,16 @@
     },
     "homepage": "https://github.com/GrigoryGerasimov/nodejs-todolist#readme",
     "devDependencies": {
+        "@types/yargs": "^17.0.14",
         "eslint": "^8.28.0",
         "eslint-config-standard": "^17.0.0",
         "eslint-plugin-import": "^2.26.0",
         "eslint-plugin-n": "^15.5.1",
-        "eslint-plugin-promise": "^6.1.1"
+        "eslint-plugin-promise": "^6.1.1",
+        "nodemon": "^2.0.20"
+    },
+    "dependencies": {
+        "chalk": "^4.1.2",
+        "yargs": "^17.6.2"
     }
 }
