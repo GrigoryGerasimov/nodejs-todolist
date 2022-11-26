@@ -1,0 +1,31 @@
+{
+    "name": "nodejs-todolist",
+    "version": "1.0.0",
+    "description": "todo list on nodejs",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "format": "npx prettier --write ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/GrigoryGerasimov/nodejs-todolist.git"
+    },
+    "keywords": [
+        "todo",
+        "nodejs"
+    ],
+    "author": "Grigory Gerasimov",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/GrigoryGerasimov/nodejs-todolist/issues"
+    },
+    "homepage": "https://github.com/GrigoryGerasimov/nodejs-todolist#readme",
+    "devDependencies": {
+        "eslint": "^8.28.0",
+        "eslint-config-standard": "^17.0.0",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-n": "^15.5.1",
+        "eslint-plugin-promise": "^6.1.1"
+    }
+}
