@@ -112,6 +112,14 @@ const db = {
     readFromDB: async() => {
         const result = await file.readFromFile("../db/db.json");
         return Array.isArray(JSON.parse(result)) ? JSON.parse(result) : [];
+    },
+    removeFromDB: async fileId => {
+        const DB = await file.readFromFile("../db/db.json");
+        const database = Array.isArray(JSON.parse(DB)) ? JSON.parse(DB) : [];
+        if (database.length) {
+            const filteredDB = database.filter(item => item.id !== fileId);
+            await file.createFile("../db/db.json", JSON.stringify(filteredDB));
+        }
     }
 };
 
