@@ -27,7 +27,7 @@ const file = {
     readFromFile: async filePath => {
         try {
             console.log(chalk.yellowBright("Command execution started"));
-            return await fs.readFile(path.resolve(__dirname, filePath));
+            return await fs.readFile(path.resolve(__dirname, filePath), { encoding: "utf-8" });
         } catch (err) {
             console.log(chalk.red(`Execution failed due to error ${err}`));
         } finally {
@@ -108,6 +108,10 @@ const db = {
         const reqFileEntries = Object.entries(JSON.parse(reqFile)).flat(1);
         database.push({ id, [reqFileEntries[0]]: reqFileEntries[1] });
         await file.createFile("../db/db.json", JSON.stringify([...new Set(database)]));
+    },
+    readFromDB: async() => {
+        const result = await file.readFromFile("../db/db.json");
+        return Array.isArray(JSON.parse(result)) ? JSON.parse(result) : [];
     }
 };
 

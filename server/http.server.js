@@ -4,7 +4,7 @@ const chalk = require("chalk");
 const { file, db } = require("../controllers/commands");
 
 const port = 3000;
-const startPagePath = path.resolve(__dirname, "../pages/index.html");
+const startPagePath = path.resolve(__dirname, "../pages/index.ejs");
 const { readFromFile } = file;
 const { writeIntoDB } = db;
 
