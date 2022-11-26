@@ -27,7 +27,7 @@ const file = {
     readFromFile: async filePath => {
         try {
             console.log(chalk.yellowBright("Command execution started"));
-            return await fs.readFile(path.resolve(__dirname, filePath));
+            return await fs.readFile(path.resolve(__dirname, filePath), { encoding: "utf-8" });
         } catch (err) {
             console.log(chalk.red(`Execution failed due to error ${err}`));
         } finally {
@@ -102,12 +102,59 @@ const common = {
 
 const db = {
     writeIntoDB: async reqFile => {
-        const DB = require("../db/db.json");
-        const database = Array.isArray(DB) ? DB : [];
-        const id = Date.now().toString();
-        const reqFileEntries = Object.entries(JSON.parse(reqFile)).flat(1);
-        database.push({ id, [reqFileEntries[0]]: reqFileEntries[1] });
-        await file.createFile("../db/db.json", JSON.stringify([...new Set(database)]));
+        try {
+            const DB = require("../db/db.json");
+            const database = Array.isArray(DB) ? DB : [];
+            const id = Date.now().toString();
+            const reqFileEntries = Object.entries(JSON.parse(reqFile)).flat(1);
+            database.push({ id, [reqFileEntries[0]]: reqFileEntries[1] });
+            await file.createFile("../db/db.json", JSON.stringify([...new Set(database)]));
+        } catch (err) {
+            console.log(chalk.red(`Execution failed due to error ${err}`));
+        } finally {
+            console.log(chalk.blueBright("Command execution finished"));
+        }
+    },
+    readFromDB: async flag => {
+        try {
+            const result = await file.readFromFile("../db/db.json");
+            return Array.isArray(JSON.parse(result)) ? flag === "console" ? result : JSON.parse(result) : [];
+        } catch (err) {
+            console.log(chalk.red(`Execution failed due to error ${err}`));
+        } finally {
+            console.log(chalk.blueBright("Command execution finished"));
+        }
+    },
+    removeFromDB: async fileId => {
+        try {
+            const DB = await file.readFromFile("../db/db.json");
+            const database = Array.isArray(JSON.parse(DB)) ? JSON.parse(DB) : [];
+            if (database.length) {
+                const filteredDB = database.filter(item => item.id !== fileId);
+                await file.createFile("../db/db.json", JSON.stringify(filteredDB));
+            }
+        } catch (err) {
+            console.log(chalk.red(`Execution failed due to error ${err}`));
+        } finally {
+            console.log(chalk.blueBright("Command execution finished"));
+        }
+    },
+    amendInDB: async(fileId, fileContent) => {
+        try {
+            const DB = await file.readFromFile("../db/db.json");
+            const database = Array.isArray(JSON.parse(DB)) ? JSON.parse(DB) : [];
+            if (database.length) {
+                const amendedDB = database.map(item => {
+                    if (item.id === fileId) item.task = fileContent;
+                    return item;
+                });
+                await file.createFile("../db/db.json", JSON.stringify(amendedDB));
+            }
+        } catch (err) {
+            console.log(chalk.red(`Execution failed due to error ${err}`));
+        } finally {
+            console.log(chalk.blueBright("Command execution finished"));
+        }
     }
 };
 
