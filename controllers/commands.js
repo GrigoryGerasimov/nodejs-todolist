@@ -106,7 +106,7 @@ const db = {
             const DB = require("../db/db.json");
             const database = Array.isArray(DB) ? DB : [];
             const id = Date.now().toString();
-            const reqFileEntries = Object.entries(JSON.parse(reqFile)).flat(1);
+            const reqFileEntries = Object.entries(reqFile).flat(1);
             database.push({ id, [reqFileEntries[0]]: reqFileEntries[1] });
             await file.createFile("../db/db.json", JSON.stringify([...new Set(database)]));
         } catch (err) {
@@ -140,6 +140,7 @@ const db = {
         }
     },
     amendInDB: async(fileId, fileContent) => {
+        console.log(fileId, fileContent);
         try {
             const DB = await file.readFromFile("../db/db.json");
             const database = Array.isArray(JSON.parse(DB)) ? JSON.parse(DB) : [];
