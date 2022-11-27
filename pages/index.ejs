@@ -11,9 +11,10 @@
     <script src="/app.js"></script>
 </head>
 <body class="w-full bg-gray-800">
-<% if (taskCreated) { %>
-    <div class="w-[75%] pt-[5%] mx-auto text-green-500 text-xl"><%= createdLabel %></div>
-<% } %>
+<header class="w-[75%] my-[10px] mx-auto pt-[5%] flex flex-row flex-wrap justify-between items-baseline">
+        <div class="<% if (taskCreated) { %>visible<% } else { %>invisible<% } %> w-[75%] mx-auto text-green-500 text-xl"><%= createdLabel %></div>
+        <a href="/download" type="button" data-type="download" class="no-underline appearance-none border-none outline-none w-full lg:max-w-max px-[25px] py-[20px] bg-yellow-500 bg-opacity-95 hover:bg-yellow-50 text-yellow-50 hover:text-yellow-500 text-xl rounded-md"><%= btnDownloadPage %></a>
+</header>
 <form action="/" method="post" enctype="application/x-www-form-urlencoded" class="w-[75%] my-[10px] mx-auto py-[10%] flex flex-row flex-wrap justify-between items-baseline">
     <input type="text" name="task" class="appearance-none border-none outline-none w-full mb-[5px] lg:w-[75%] lg:mb-0 px-[15px] py-[20px] bg-yellow-50 rounded-md text-lg" required/>
     <button type="submit" class="appearance-none border-none outline-none w-full lg:max-w-max px-[25px] py-[20px] bg-green-400 bg-opacity-95 hover:bg-green-50 text-green-50 hover:text-green-400 text-xl rounded-md"><%= btnCreateTask %></button>
