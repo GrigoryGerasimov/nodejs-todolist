@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
+    <meta name="keywords" content="node, app, todo, list"/>
+    <meta name="description" content="Todo List app on NodeJS"/>
+    <title>Todo List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/app.js"></script>
+</head>
+<body class="w-full bg-gray-800">
+<% if (taskCreated) { %>
+    <div class="w-[75%] pt-[5%] mx-auto text-green-500 text-xl"><%= createdLabel %></div>
+<% } %>
+<form action="/" method="post" enctype="application/x-www-form-urlencoded" class="w-[75%] my-[10px] mx-auto py-[10%] flex flex-row flex-wrap justify-between items-baseline">
+    <input type="text" name="task" class="appearance-none border-none outline-none w-full mb-[5px] lg:w-[75%] lg:mb-0 px-[15px] py-[20px] bg-yellow-50 rounded-md text-lg" required/>
+    <button type="submit" class="appearance-none border-none outline-none w-full lg:max-w-max px-[25px] py-[20px] bg-green-400 bg-opacity-95 hover:bg-green-50 text-green-50 hover:text-green-400 text-xl rounded-md"><%= btnCreateTask %></button>
+</form>
+<output class="w-[75%] my-[10px] mx-auto pb-[10%] flex flex-row flex-wrap justify-between items-baseline">
+    <% for (const listItem of taskList ) { %>
+        <li class="list-none mb-[15px] w-full flex flex-row flex-wrap justify-between">
+            <span class="tracking-widest w-full mb-[5px] lg:w-[75%] lg:mb-0 px-[15px] py-[20px] text-yellow-50 text-2xl flex justify-center"><%= listItem.task %></span>
+            <button type="button" data-type="remove" data-id="<%= listItem.id %>" class="appearance-none border-none outline-none w-full lg:max-w-max px-[25px] py-[20px] bg-red-400 bg-opacity-95 hover:bg-red-50 text-red-50 hover:text-red-400 text-xl rounded-md"><%= btnDeleteTask %></button>
+        </li>
+    <% } %>
+</output>
+</body>
+</html>
