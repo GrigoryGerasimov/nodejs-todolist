@@ -11,18 +11,27 @@
     <script src="/app.js"></script>
 </head>
 <body class="w-full bg-gray-800">
-<% if (taskCreated) { %>
-    <div class="w-[75%] pt-[5%] mx-auto text-green-500 text-xl"><%= createdLabel %></div>
-<% } %>
-<form action="/" method="post" enctype="application/x-www-form-urlencoded" class="w-[75%] my-[10px] mx-auto py-[10%] flex flex-row flex-wrap justify-between items-baseline">
+<header class="w-[85%] my-[10px] mx-auto pt-[5%] flex flex-row flex-wrap justify-between items-baseline">
+        <div class="<% if (taskCreated) { %>visible<% } else { %>invisible<% } %> w-[75%] mx-auto text-green-500 text-xl"><%= createdLabel %></div>
+        <a href="/download" type="button" data-type="download" class="no-underline appearance-none border-none outline-none w-full lg:max-w-max px-[25px] py-[20px] bg-yellow-500 bg-opacity-95 hover:bg-yellow-50 text-yellow-50 hover:text-yellow-500 text-xl rounded-md"><%= btnDownloadPage %></a>
+</header>
+<form class="w-[85%] my-[10px] mx-auto py-[10%] flex flex-row flex-wrap justify-between items-baseline">
     <input type="text" name="task" class="appearance-none border-none outline-none w-full mb-[5px] lg:w-[75%] lg:mb-0 px-[15px] py-[20px] bg-yellow-50 rounded-md text-lg" required/>
     <button type="submit" class="appearance-none border-none outline-none w-full lg:max-w-max px-[25px] py-[20px] bg-green-400 bg-opacity-95 hover:bg-green-50 text-green-50 hover:text-green-400 text-xl rounded-md"><%= btnCreateTask %></button>
 </form>
-<output class="w-[75%] my-[10px] mx-auto pb-[10%] flex flex-row flex-wrap justify-between items-baseline">
+<output class="w-[85%] my-[10px] mx-auto pb-[10%] flex flex-row flex-wrap justify-between items-baseline">
     <% for (const listItem of taskList ) { %>
         <li class="list-none mb-[15px] w-full flex flex-row flex-wrap justify-between">
-            <span class="tracking-widest w-full mb-[5px] lg:w-[75%] lg:mb-0 px-[15px] py-[20px] text-yellow-50 text-2xl flex justify-center"><%= listItem.task %></span>
-            <button type="button" data-type="remove" data-id="<%= listItem.id %>" class="appearance-none border-none outline-none w-full lg:max-w-max px-[25px] py-[20px] bg-red-400 bg-opacity-95 hover:bg-red-50 text-red-50 hover:text-red-400 text-xl rounded-md"><%= btnDeleteTask %></button>
+            <span data-fixedid="<%= listItem.id %>" class="block tracking-widest w-full mb-[5px] lg:w-[70%] lg:mb-0 px-[15px] py-[20px] text-yellow-50 text-2xl flex justify-center"><%= listItem.task %></span>
+            <input data-editid="<%= listItem.id %>" type="text" name="task" class="hidden border-b border-opacity-50 rounded-lg bg-transparent tracking-widest w-full mb-[5px] lg:w-[70%] lg:mb-0 px-[15px] py-[20px] text-yellow-50 text-2xl flex justify-center" value="<%= listItem.task %>" />
+            <div data-fixedblockid="<%= listItem.id %>" class="block w-full lg:w-[25%] flex flex-row flex-wrap lg:flex-nowrap grow-1 shrink-0">
+                <button type="button" data-type="edit" data-id="<%= listItem.id %>" class="appearance-none border-none outline-none w-full px-[25px] py-[20px] bg-indigo-400 bg-opacity-95 hover:bg-indigo-50 text-indigo-50 hover:text-indigo-400 text-xl rounded-md"><%= btnEditTask %></button>
+                <button type="button" data-type="remove" data-id="<%= listItem.id %>" class="appearance-none border-none outline-none w-full ml-[5px] px-[25px] py-[20px] bg-red-400 bg-opacity-95 hover:bg-red-50 text-red-50 hover:text-red-400 text-xl rounded-md"><%= btnDeleteTask %></button>
+            </div>
+            <div data-editblockid="<%= listItem.id %>" class="hidden w-full lg:w-[25%] flex flex-row flex-wrap lg:flex-nowrap grow-1 shrink-0">
+                <button type="button" data-type="save" data-id="<%= listItem.id %>" class="appearance-none border-none outline-none w-full px-[25px] py-[20px] bg-green-600 bg-opacity-95 hover:bg-green-50 text-green-50 hover:text-green-600 text-xl rounded-md"><%= btnSaveTask %></button>
+                <button type="button" data-type="back" data-id="<%= listItem.id %>" class="appearance-none border-none outline-none w-full ml-[5px] px-[25px] py-[20px] bg-red-600 bg-opacity-95 hover:bg-red-50 text-red-50 hover:text-red-600 text-xl rounded-md"><%= btnReturn %></button>
+            </div>
         </li>
     <% } %>
 </output>

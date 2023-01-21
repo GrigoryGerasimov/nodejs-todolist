@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"/>
+    <meta name="keywords" content="node, app, todo, list"/>
+    <meta name="description" content="Todo List app on NodeJS"/>
+    <title>Todo List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/app.js"></script>
+</head>
+<body class="w-full bg-gray-800">
+<header class="w-[85%] my-[10px] mx-auto pt-[5%] flex flex-row flex-wrap justify-between items-baseline">
+        <div class="invisible w-[75%] mx-auto text-green-500 text-xl">New task successfully created</div>
+        <a href="/download" type="button" data-type="download" class="no-underline appearance-none border-none outline-none w-full lg:max-w-max px-[25px] py-[20px] bg-yellow-500 bg-opacity-95 hover:bg-yellow-50 text-yellow-50 hover:text-yellow-500 text-xl rounded-md">Download</a>
+</header>
+<form class="w-[85%] my-[10px] mx-auto py-[10%] flex flex-row flex-wrap justify-between items-baseline">
+    <input type="text" name="task" class="appearance-none border-none outline-none w-full mb-[5px] lg:w-[75%] lg:mb-0 px-[15px] py-[20px] bg-yellow-50 rounded-md text-lg" required/>
+    <button type="submit" class="appearance-none border-none outline-none w-full lg:max-w-max px-[25px] py-[20px] bg-green-400 bg-opacity-95 hover:bg-green-50 text-green-50 hover:text-green-400 text-xl rounded-md">Create Task</button>
+</form>
+<output class="w-[85%] my-[10px] mx-auto pb-[10%] flex flex-row flex-wrap justify-between items-baseline">
+    
+        <li class="list-none mb-[15px] w-full flex flex-row flex-wrap justify-between">
+            <span data-fixedid="1669585580491" class="block tracking-widest w-full mb-[5px] lg:w-[70%] lg:mb-0 px-[15px] py-[20px] text-yellow-50 text-2xl flex justify-center">Test Task7890002r4r34f</span>
+            <input data-editid="1669585580491" type="text" name="task" class="hidden border-b border-opacity-50 rounded-lg bg-transparent tracking-widest w-full mb-[5px] lg:w-[70%] lg:mb-0 px-[15px] py-[20px] text-yellow-50 text-2xl flex justify-center" value="Test Task7890002r4r34f" />
+            <div data-fixedblockid="1669585580491" class="block w-full lg:w-[25%] flex flex-row flex-wrap lg:flex-nowrap grow-1 shrink-0">
+                <button type="button" data-type="edit" data-id="1669585580491" class="appearance-none border-none outline-none w-full px-[25px] py-[20px] bg-indigo-400 bg-opacity-95 hover:bg-indigo-50 text-indigo-50 hover:text-indigo-400 text-xl rounded-md">Edit Task</button>
+                <button type="button" data-type="remove" data-id="1669585580491" class="appearance-none border-none outline-none w-full ml-[5px] px-[25px] py-[20px] bg-red-400 bg-opacity-95 hover:bg-red-50 text-red-50 hover:text-red-400 text-xl rounded-md">Delete Task</button>
+            </div>
+            <div data-editblockid="1669585580491" class="hidden w-full lg:w-[25%] flex flex-row flex-wrap lg:flex-nowrap grow-1 shrink-0">
+                <button type="button" data-type="save" data-id="1669585580491" class="appearance-none border-none outline-none w-full px-[25px] py-[20px] bg-green-600 bg-opacity-95 hover:bg-green-50 text-green-50 hover:text-green-600 text-xl rounded-md">Save Task</button>
+                <button type="button" data-type="back" data-id="1669585580491" class="appearance-none border-none outline-none w-full ml-[5px] px-[25px] py-[20px] bg-red-600 bg-opacity-95 hover:bg-red-50 text-red-50 hover:text-red-600 text-xl rounded-md">Cancel</button>
+            </div>
+        </li>
+    
+        <li class="list-none mb-[15px] w-full flex flex-row flex-wrap justify-between">
+            <span data-fixedid="1669585767070" class="block tracking-widest w-full mb-[5px] lg:w-[70%] lg:mb-0 px-[15px] py-[20px] text-yellow-50 text-2xl flex justify-center">sdcwevwervwervwTestTestTest</span>
+            <input data-editid="1669585767070" type="text" name="task" class="hidden border-b border-opacity-50 rounded-lg bg-transparent tracking-widest w-full mb-[5px] lg:w-[70%] lg:mb-0 px-[15px] py-[20px] text-yellow-50 text-2xl flex justify-center" value="sdcwevwervwervwTestTestTest" />
+            <div data-fixedblockid="1669585767070" class="block w-full lg:w-[25%] flex flex-row flex-wrap lg:flex-nowrap grow-1 shrink-0">
+                <button type="button" data-type="edit" data-id="1669585767070" class="appearance-none border-none outline-none w-full px-[25px] py-[20px] bg-indigo-400 bg-opacity-95 hover:bg-indigo-50 text-indigo-50 hover:text-indigo-400 text-xl rounded-md">Edit Task</button>
+                <button type="button" data-type="remove" data-id="1669585767070" class="appearance-none border-none outline-none w-full ml-[5px] px-[25px] py-[20px] bg-red-400 bg-opacity-95 hover:bg-red-50 text-red-50 hover:text-red-400 text-xl rounded-md">Delete Task</button>
+            </div>
+            <div data-editblockid="1669585767070" class="hidden w-full lg:w-[25%] flex flex-row flex-wrap lg:flex-nowrap grow-1 shrink-0">
+                <button type="button" data-type="save" data-id="1669585767070" class="appearance-none border-none outline-none w-full px-[25px] py-[20px] bg-green-600 bg-opacity-95 hover:bg-green-50 text-green-50 hover:text-green-600 text-xl rounded-md">Save Task</button>
+                <button type="button" data-type="back" data-id="1669585767070" class="appearance-none border-none outline-none w-full ml-[5px] px-[25px] py-[20px] bg-red-600 bg-opacity-95 hover:bg-red-50 text-red-50 hover:text-red-600 text-xl rounded-md">Cancel</button>
+            </div>
+        </li>
+    
+        <li class="list-none mb-[15px] w-full flex flex-row flex-wrap justify-between">
+            <span data-fixedid="1669585781555" class="block tracking-widest w-full mb-[5px] lg:w-[70%] lg:mb-0 px-[15px] py-[20px] text-yellow-50 text-2xl flex justify-center">Brand new task for today or evening</span>
+            <input data-editid="1669585781555" type="text" name="task" class="hidden border-b border-opacity-50 rounded-lg bg-transparent tracking-widest w-full mb-[5px] lg:w-[70%] lg:mb-0 px-[15px] py-[20px] text-yellow-50 text-2xl flex justify-center" value="Brand new task for today or evening" />
+            <div data-fixedblockid="1669585781555" class="block w-full lg:w-[25%] flex flex-row flex-wrap lg:flex-nowrap grow-1 shrink-0">
+                <button type="button" data-type="edit" data-id="1669585781555" class="appearance-none border-none outline-none w-full px-[25px] py-[20px] bg-indigo-400 bg-opacity-95 hover:bg-indigo-50 text-indigo-50 hover:text-indigo-400 text-xl rounded-md">Edit Task</button>
+                <button type="button" data-type="remove" data-id="1669585781555" class="appearance-none border-none outline-none w-full ml-[5px] px-[25px] py-[20px] bg-red-400 bg-opacity-95 hover:bg-red-50 text-red-50 hover:text-red-400 text-xl rounded-md">Delete Task</button>
+            </div>
+            <div data-editblockid="1669585781555" class="hidden w-full lg:w-[25%] flex flex-row flex-wrap lg:flex-nowrap grow-1 shrink-0">
+                <button type="button" data-type="save" data-id="1669585781555" class="appearance-none border-none outline-none w-full px-[25px] py-[20px] bg-green-600 bg-opacity-95 hover:bg-green-50 text-green-50 hover:text-green-600 text-xl rounded-md">Save Task</button>
+                <button type="button" data-type="back" data-id="1669585781555" class="appearance-none border-none outline-none w-full ml-[5px] px-[25px] py-[20px] bg-red-600 bg-opacity-95 hover:bg-red-50 text-red-50 hover:text-red-600 text-xl rounded-md">Cancel</button>
+            </div>
+        </li>
+    
+        <li class="list-none mb-[15px] w-full flex flex-row flex-wrap justify-between">
+            <span data-fixedid="1669586891594" class="block tracking-widest w-full mb-[5px] lg:w-[70%] lg:mb-0 px-[15px] py-[20px] text-yellow-50 text-2xl flex justify-center">Test Task 67</span>
+            <input data-editid="1669586891594" type="text" name="task" class="hidden border-b border-opacity-50 rounded-lg bg-transparent tracking-widest w-full mb-[5px] lg:w-[70%] lg:mb-0 px-[15px] py-[20px] text-yellow-50 text-2xl flex justify-center" value="Test Task 67" />
+            <div data-fixedblockid="1669586891594" class="block w-full lg:w-[25%] flex flex-row flex-wrap lg:flex-nowrap grow-1 shrink-0">
+                <button type="button" data-type="edit" data-id="1669586891594" class="appearance-none border-none outline-none w-full px-[25px] py-[20px] bg-indigo-400 bg-opacity-95 hover:bg-indigo-50 text-indigo-50 hover:text-indigo-400 text-xl rounded-md">Edit Task</button>
+                <button type="button" data-type="remove" data-id="1669586891594" class="appearance-none border-none outline-none w-full ml-[5px] px-[25px] py-[20px] bg-red-400 bg-opacity-95 hover:bg-red-50 text-red-50 hover:text-red-400 text-xl rounded-md">Delete Task</button>
+            </div>
+            <div data-editblockid="1669586891594" class="hidden w-full lg:w-[25%] flex flex-row flex-wrap lg:flex-nowrap grow-1 shrink-0">
+                <button type="button" data-type="save" data-id="1669586891594" class="appearance-none border-none outline-none w-full px-[25px] py-[20px] bg-green-600 bg-opacity-95 hover:bg-green-50 text-green-50 hover:text-green-600 text-xl rounded-md">Save Task</button>
+                <button type="button" data-type="back" data-id="1669586891594" class="appearance-none border-none outline-none w-full ml-[5px] px-[25px] py-[20px] bg-red-600 bg-opacity-95 hover:bg-red-50 text-red-50 hover:text-red-600 text-xl rounded-md">Cancel</button>
+            </div>
+        </li>
+    
+        <li class="list-none mb-[15px] w-full flex flex-row flex-wrap justify-between">
+            <span data-fixedid="1669588511331" class="block tracking-widest w-full mb-[5px] lg:w-[70%] lg:mb-0 px-[15px] py-[20px] text-yellow-50 text-2xl flex justify-center">New Task 888</span>
+            <input data-editid="1669588511331" type="text" name="task" class="hidden border-b border-opacity-50 rounded-lg bg-transparent tracking-widest w-full mb-[5px] lg:w-[70%] lg:mb-0 px-[15px] py-[20px] text-yellow-50 text-2xl flex justify-center" value="New Task 888" />
+            <div data-fixedblockid="1669588511331" class="block w-full lg:w-[25%] flex flex-row flex-wrap lg:flex-nowrap grow-1 shrink-0">
+                <button type="button" data-type="edit" data-id="1669588511331" class="appearance-none border-none outline-none w-full px-[25px] py-[20px] bg-indigo-400 bg-opacity-95 hover:bg-indigo-50 text-indigo-50 hover:text-indigo-400 text-xl rounded-md">Edit Task</button>
+                <button type="button" data-type="remove" data-id="1669588511331" class="appearance-none border-none outline-none w-full ml-[5px] px-[25px] py-[20px] bg-red-400 bg-opacity-95 hover:bg-red-50 text-red-50 hover:text-red-400 text-xl rounded-md">Delete Task</button>
+            </div>
+            <div data-editblockid="1669588511331" class="hidden w-full lg:w-[25%] flex flex-row flex-wrap lg:flex-nowrap grow-1 shrink-0">
+                <button type="button" data-type="save" data-id="1669588511331" class="appearance-none border-none outline-none w-full px-[25px] py-[20px] bg-green-600 bg-opacity-95 hover:bg-green-50 text-green-50 hover:text-green-600 text-xl rounded-md">Save Task</button>
+                <button type="button" data-type="back" data-id="1669588511331" class="appearance-none border-none outline-none w-full ml-[5px] px-[25px] py-[20px] bg-red-600 bg-opacity-95 hover:bg-red-50 text-red-50 hover:text-red-600 text-xl rounded-md">Cancel</button>
+            </div>
+        </li>
+    
+</output>
+</body>
+</html>

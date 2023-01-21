@@ -14,7 +14,7 @@ yargs.command({
     },
     description: "add new note to list",
     async handler({ title }) {
-        await writeIntoDB(JSON.stringify({ task: title }));
+        await writeIntoDB({ task: title });
     }
 });
 
